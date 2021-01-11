@@ -19,6 +19,7 @@ app.get('/api/health-check', (req, res, next) => {
     .catch(err => next(err));
 });
 
+// endpoint to grab all products
 app.get('/api/products', (req, res, next) => {
   const sql = `
     SELECT  "productId",
@@ -31,6 +32,39 @@ app.get('/api/products', (req, res, next) => {
   db.query(sql)
     .then(result => res.json(result.rows))
     .catch(error => next(error));
+});
+
+// get endpoint to grab speicific details of a product
+app.get('/api/products/:productId', (req, res, next) => {
+  const productId = parseInt(req.params.productId, 10);
+
+  if (!Number.isInteger(productId) || productId <= 0) {
+    return res.status(400).json({
+      error: ' "productId" must be a positive integer'
+    });
+  }
+
+  const sql = `
+    SELECT  "name",
+            "price",
+            "image",
+            "shortDescription",
+            "longDescription"
+  FROM      "products"
+  WHERE     "productId" = ${productId}
+  `;
+
+  db.query(sql)
+    .then(result => {
+      const productDetails = result.rows[0];
+      if (!productDetails) {
+        next(new ClientError(`productId ${productId} does not exist`, 404));
+      } else {
+        res.status(200).json(productDetails);
+      }
+    })
+    .catch(error => next(error));
+
 });
 
 app.use('/api', (req, res, next) => {
