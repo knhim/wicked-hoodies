@@ -1,0 +1,4 @@
+.image-contain {
+  height: 60%;
+  object-fit: contain;
+}
