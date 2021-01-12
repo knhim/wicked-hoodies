@@ -45,7 +45,8 @@ app.get('/api/products/:productId', (req, res, next) => {
   }
 
   const sql = `
-    SELECT  "name",
+    SELECT  "productId",
+            "name",
             "price",
             "image",
             "shortDescription",
