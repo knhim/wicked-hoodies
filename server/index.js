@@ -51,10 +51,11 @@ app.get('/api/products/:productId', (req, res, next) => {
             "shortDescription",
             "longDescription"
   FROM      "products"
-  WHERE     "productId" = ${productId}
+  WHERE     "productId" = $1
   `;
 
-  db.query(sql)
+  const params = [productId];
+  db.query(sql, params)
     .then(result => {
       const productDetails = result.rows[0];
       if (!productDetails) {
