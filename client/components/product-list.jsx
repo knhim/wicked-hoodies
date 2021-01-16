@@ -24,10 +24,12 @@ export default class ProductList extends React.Component {
     const products = this.state.products;
     const listProducts = products.map(item =>
       <ProductListItem key={item.productId}
+        productId={item.productId }
         image={item.image}
         name={item.name}
         price={item.price}
         shortDescription={item.shortDescription}
+        setView={() => this.props.setView('details', { productId: item.productId })}
       />
     );
 
