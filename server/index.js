@@ -92,7 +92,7 @@ app.get('/api/cart', (req, res, next) => {
     db.query(sql, params)
       .then(result => {
         const { cartItemId, price, productId, image, name, shortDescription } = result.rows[0];
-        res.status(201).json({
+        res.status(200).json({
           cartItemId: cartItemId,
           price: price,
           productId: productId,
@@ -163,7 +163,12 @@ app.post('/api/cart/', (req, res, next) => {
 
       const params = [cartId, productId, price];
       return db.query(sql, params)
-        .then(result => result.rows[0]);
+        .then(result => {
+          const { cartItemId } = result.rows[0];
+          return {
+            cartItemId: cartItemId
+          };
+        });
     })
     .then(result => {
       const { cartItemId } = result;
@@ -183,10 +188,20 @@ app.post('/api/cart/', (req, res, next) => {
 
       return db.query(sql, params)
         .then(result => {
-          res.status(201).json(result.rows[0]);
+          const { cartItemId, price, productId, image, name, shortDescription } = result.rows[0];
+          res.status(201).json({
+            cartItemId: cartItemId,
+            price: price,
+            productId: productId,
+            image: image,
+            name: name,
+            shortDescription: shortDescription
+          });
         });
     })
-    .catch(err => next(err));
+    .catch(err => {
+      next(err);
+    });
 
 });
 
