@@ -17,6 +17,10 @@ export default class App extends React.Component {
 
   }
 
+  componentDidMount() {
+    this.getCartItems();
+  }
+
   setView(name, params) {
     this.setState({
       view: {
