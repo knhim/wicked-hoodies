@@ -75,9 +75,10 @@ app.get('/api/cart', (req, res, next) => {
   if (!req.session.cartId) {
     res.status(200).json([]);
   } else {
+
     const cartId = req.session.cartId;
     const sql = `
-       SELECT    "c"."cartItemId",
+       SELECT     "c"."cartItemId",
                   "c"."price",
                   "p"."productId",
                   "p"."image",
@@ -92,14 +93,14 @@ app.get('/api/cart', (req, res, next) => {
     db.query(sql, params)
       .then(result => {
         const { cartItemId, price, productId, image, name, shortDescription } = result.rows[0];
-        res.status(200).json({
+        res.status(200).json([{
           cartItemId: cartItemId,
           price: price,
           productId: productId,
           image: image,
           name: name,
           shortDescription: shortDescription
-        });
+        }]);
       })
       .catch(error => next(error));
   }

@@ -14,6 +14,7 @@ export default class App extends React.Component {
       cart: []
     };
     this.setView = this.setView.bind(this);
+    this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
 
   }
@@ -34,7 +35,7 @@ export default class App extends React.Component {
   getCartItems() {
     fetch('/api/cart')
       .then(res => res.json())
-      .then(data => this.setState({ cart: [data] }));
+      .then(data => this.setState({ cart: data }));
   }
 
   addToCart(product) {
