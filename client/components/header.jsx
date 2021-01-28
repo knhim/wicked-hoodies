@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function Header(props) {
+
   return (
     <div className="d-flex align-items-center justify-content-around bg-secondary text-light">
       <h1>$ Wicked Sales</h1>
