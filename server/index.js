@@ -91,17 +91,7 @@ app.get('/api/cart', (req, res, next) => {
     const params = [cartId];
 
     db.query(sql, params)
-      .then(result => {
-        const { cartItemId, price, productId, image, name, shortDescription } = result.rows[0];
-        res.status(200).json([{
-          cartItemId: cartItemId,
-          price: price,
-          productId: productId,
-          image: image,
-          name: name,
-          shortDescription: shortDescription
-        }]);
-      })
+      .then(result => res.status(200).json(result.rows))
       .catch(error => next(error));
   }
 });
