@@ -2,3 +2,8 @@
   height: 60%;
   object-fit: contain;
 }
+
+.cart-images {
+  height: 20rem;
+  object-fit: contain;
+}
