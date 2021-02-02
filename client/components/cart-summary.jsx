@@ -27,7 +27,7 @@ export default function CartSummary(props) {
       <>
         <p onClick={() => props.setView('catalog', { params: {} })}>&lt; Back to catalog</p>
         <p>There are no items in your cart!</p>
-        <p>Cart Total: {total}</p>
+        <p>Cart Total: ${(total).toFixed(2)}</p>
       </>
     );
   } else {
@@ -36,6 +36,7 @@ export default function CartSummary(props) {
         <p onClick={() => props.setView('catalog', { params: {} })}>&lt; Back to catalog</p>
         { cartItems}
         <p>Cart Total: ${(total / 100).toFixed(2)}</p>
+        <button onClick={() => props.setView('checkout', { params: {} })} type="submit" className="btn btn-primary">Checkout</button>
       </>
 
     );
