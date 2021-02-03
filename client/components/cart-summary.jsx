@@ -35,8 +35,10 @@ export default function CartSummary(props) {
       <>
         <p onClick={() => props.setView('catalog', { params: {} })}>&lt; Back to catalog</p>
         { cartItems}
-        <p>Cart Total: ${(total / 100).toFixed(2)}</p>
-        <button onClick={() => props.setView('checkout', { params: {} })} type="submit" className="btn btn-primary">Checkout</button>
+        <div className="d-flex justify-content-between">
+          <p className="font-weight-bold">Cart Total: ${(total / 100).toFixed(2)}</p>
+          <button onClick={() => props.setView('checkout', { params: {} })} type="submit" className="btn btn-primary">Checkout</button>
+        </div>
       </>
 
     );
