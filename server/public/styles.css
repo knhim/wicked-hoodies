@@ -1,9 +1,28 @@
 .image-contain {
-  height: 60%;
+  height: 50%;
   object-fit: contain;
 }
 
 .cart-images {
-  height: 20rem;
+  height: 18rem;
   object-fit: contain;
+}
+/* iphone 6/7/8 */
+
+@media screen (max-width: 375px) and (max-width: 700px) {
+
+}
+
+/* ipad */
+@media (min-width:768px) {
+.desktop {
+    width: 30%;
+  }
+}
+
+/* desktop */
+@media (min-width: 1200px) {
+  .desktop {
+    width: 30%;
+  }
 }

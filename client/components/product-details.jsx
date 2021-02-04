@@ -24,22 +24,17 @@ export default class ProductDetails extends React.Component {
     } else {
       return (
         <>
-
-          <div className="container shadow-sm">
-            <h2 onClick={() => this.props.setView('catalog', { params: {} })}>&lt; Back to catalog</h2>
-            <div className="row">
-              <img className="image-contain col-6" src={this.state.product.image} alt={this.state.product.name} />
-              <div className="col-6">
-                <h3>{this.state.product.name}</h3>
-                <p>${(this.state.product.price / 100).toFixed(2)}</p>
-                <p>{this.state.product.shortDescription}</p>
-                <button onClick={() => this.props.addToCart(this.props.params)}>Add to Cart</button>
-              </div>
-
+          <h2 onClick={() => this.props.setView('catalog', { params: {} })}>&lt; Back to catalog</h2>
+          <div className="card m-3" /* onClick={props.setView} */>
+            <img className="card-img-top image-contain" src={this.state.product.image} alt={this.state.product.name} />
+            <div className="card-body pt-2">
+              <h5 className="card-title">{this.state.product.name}</h5>
+              <p>${(this.state.product.price / 100).toFixed(2)}</p>
+              <p className="card-text">{this.state.product.shortDescription}</p>
+              <button onClick={() => this.props.addToCart(this.props.params)}>Add to Cart</button>
             </div>
-
-            <p>{this.state.product.longDescription}</p>
           </div>
+          <p className="px-3">{this.state.product.longDescription}</p>
         </>
       );
     }
