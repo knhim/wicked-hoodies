@@ -5,6 +5,12 @@ export default function CartSummary(props) {
   const cart = props.cart;
   let total = 0;
 
+  // used to call multiple functions
+  function handleClick() {
+    props.setView('checkout', { params: {} });
+    props.handleModal();
+  }
+
   const cartItems = cart.map(items => {
     return (
       <CartSummaryItem
@@ -37,7 +43,7 @@ export default function CartSummary(props) {
         { cartItems}
         <div className="d-flex justify-content-between align-items-center">
           <p className="font-weight-bold">Cart Total: ${(total / 100).toFixed(2)}</p>
-          <button onClick={() => props.setView('checkout', { params: {} })} type="submit" className="btn btn-primary">Checkout</button>
+          <button onClick={() => handleClick()} type="submit" className="btn btn-primary">Checkout</button>
         </div>
       </>
 
