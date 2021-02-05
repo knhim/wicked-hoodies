@@ -1,28 +1,27 @@
 import React from 'react';
 
-export default function HomePageModal() {
+export default function HomePageModal(props) {
+
+  const isModalOpen = props.isModalOpen;
+
   return (
-    <>
-      <div className="modal" tabIndex="-1" role="dialog" style={{ display: 'block' }}>
+    <div>
+      <div className="modal dimmer" tabIndex="-1" role="dialog" style={isModalOpen ? { display: 'block' } : { display: 'none' }}>
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">Wicked Hoodies (DEMO SITE)</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
             </div>
             <div className="modal-body">
-              <p>This site is a demo, and no real purchases will be made.</p>
+              <p>This site is a demo, and no real purchases will be made. Do not enter personal information!</p>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary">Save changes</button>
-              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button onClick={() => props.handleModal()} type="button" className="btn btn-secondary" data-dismiss="modal" aria-label="Close">I understand!</button>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 
 }

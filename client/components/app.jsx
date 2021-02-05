@@ -14,12 +14,14 @@ export default class App extends React.Component {
         name: 'catalog',
         params: {}
       },
-      cart: []
+      cart: [],
+      isModalOpen: true
     };
     this.setView = this.setView.bind(this);
     this.getCartItems = this.getCartItems.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   componentDidMount() {
@@ -79,12 +81,16 @@ export default class App extends React.Component {
       });
   }
 
+  handleModal() {
+    this.setState({ isModalOpen: !this.state.isModalOpen });
+  }
+
   render() {
 
     if (this.state.view.name === 'catalog') {
       return (
         <>
-          <HomePageModal />
+          <HomePageModal handleModal={this.handleModal} isModalOpen={this.state.isModalOpen}/>
           <Header cartItemCount={this.state.cart.length} setView={this.setView} />
           <div className="container">
             <div className="row d-flex justify-content-center">
@@ -110,13 +116,14 @@ export default class App extends React.Component {
         <>
           <Header cartItemCount={this.state.cart.length} setView={this.setView}/>
           <div className="container">
-            <CartSummary cart={this.state.cart} setView={this.setView} />
+            <CartSummary cart={this.state.cart} setView={this.setView} handleModal={this.handleModal} isModalOpen={this.state.isModalOpen} />
           </div>
         </>
       );
     } else if (this.state.view.name === 'checkout') {
       return (
         <>
+          <HomePageModal handleModal={this.handleModal} isModalOpen={this.state.isModalOpen}/>
           <Header cartItemCount={this.state.cart.length} setView={this.setView} />
           <div className="container">
             <CheckoutForm setView={this.setView} placeOrder={this.placeOrder} />
