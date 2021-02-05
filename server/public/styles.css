@@ -7,6 +7,13 @@
   height: 18rem;
   object-fit: contain;
 }
+
+.modal {
+  display: block;
+  position: fixed;
+  overflow: hidden;
+}
+
 /* iphone 6/7/8 */
 
 @media screen (max-width: 375px) and (max-width: 700px) {

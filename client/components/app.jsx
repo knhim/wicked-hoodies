@@ -4,6 +4,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
+import HomePageModal from './homepage-modal';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -83,6 +84,7 @@ export default class App extends React.Component {
     if (this.state.view.name === 'catalog') {
       return (
         <>
+          <HomePageModal />
           <Header cartItemCount={this.state.cart.length} setView={this.setView} />
           <div className="container">
             <div className="row d-flex justify-content-center">
