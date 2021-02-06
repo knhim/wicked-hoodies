@@ -26,7 +26,7 @@ Try the app at [Wicked Hoodies](google.com)
 
 
 ## Preview
-![](server/public/images/wickedHoodies-demo.gif)
+<img src="server/public/images/wickedHoodies-demo.gif" height=500px>
 
 ## Development
 
