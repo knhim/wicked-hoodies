@@ -22,7 +22,7 @@ Wicked Hoodies is a full stack shopping cart app created with Node.js and React.
 
 ## Live Demo
 
-Try the app at [Wicked Hoodies](google.com)
+Try the app at [Wicked Hoodies](https://wicked-hoodies.kevinnhim.com)
 
 
 ## Preview
