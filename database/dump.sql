@@ -277,6 +277,16 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 282	111	2	2595
 283	112	1	2999
 284	112	2	2595
+285	113	1	5999
+286	113	1	5999
+287	114	1	5999
+288	114	3	5499
+289	115	3	5499
+290	115	2	5999
+291	116	3	5499
+292	116	4	5499
+293	117	2	5999
+294	117	1	5999
 \.
 
 
@@ -310,6 +320,11 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 110	2021-02-02 17:08:59.384011-08
 111	2021-02-04 04:57:44.415445-08
 112	2021-02-04 06:13:10.561719-08
+113	2021-02-05 10:47:02.588473-08
+114	2021-02-05 11:03:24.867309-08
+115	2021-02-05 11:52:30.420178-08
+116	2021-02-05 11:56:29.038512-08
+117	2021-02-05 11:57:29.648888-08
 \.
 
 
@@ -358,6 +373,11 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 48	108	kevin	1234	1234 lfz drive	2021-02-02 11:22:18.6296-08
 50	109	kevin nhim	1234-4321-1234	1234 lfz lane	2021-02-02 17:08:28.123442-08
 51	111	kevin	1234-4321-1234	1234 test avenue	2021-02-04 06:11:45.172692-08
+52	113	kevin	1234	1234 LFZ Lane	2021-02-05 11:03:15.54392-08
+53	114				2021-02-05 11:51:42.599375-08
+54	115				2021-02-05 11:55:17.106104-08
+55	116				2021-02-05 11:57:09.75544-08
+56	117	Kevin	1234-4321-12345	1234 LFZ Avenue	2021-02-05 11:57:50.279017-08
 \.
 
 
@@ -366,12 +386,12 @@ COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", 
 --
 
 COPY public.products ("productId", name, price, image, "shortDescription", "longDescription") FROM stdin;
-1	Shake Weight	2999	/images/shake-weight.jpg	Dynamic Inertia technology ignites muscles in arms, shoulders, and chest.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-2	ShamWow	2595	/images/shamwow.jpg	It's like a chamois, towel, and sponge, all in one! Soaks up to 10x it's weight in any liquid!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-3	Snuggie	2900	/images/snuggie.jpg	Super-Soft Fleece with pockets! One Size fits all Adults! Keeps you Warm & Your Hands-Free!	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-4	Wax Vac	999	/images/wax-vac.jpg	Gentle way to remove ear wax. Safe and hygienic. Reduces the risk of painful infections.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-5	Ostrich Pillow	9900	/images/ostrich-pillow.jpg	Create your own snugly space in the world and feel-good anywhere with the ultimate cocoon pillow.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
-6	Tater Mitts	830	/images/tater-mitts.jpg	8 Seconds is all you need with Tater Mitts. Quickly and easily prepare all your favorite potato dishes with Tater Mitts.	Lorem ipsum dolor amet fashion axe pour-over jianbing, adaptogen waistcoat tacos master cleanse pitchfork next level. Thundercats pour-over chartreuse 90's. Master cleanse hot chicken ennui offal. Freegan slow-carb offal hell of. Umami polaroid wolf slow-carb next level. Gentrify cardigan seitan, kombucha tacos chambray roof party typewriter man braid. Tote bag lo-fi hell of chia fam hammock.\\nAesthetic photo booth la croix, vaporware leggings biodiesel man braid tumeric skateboard tousled slow-carb four dollar toast synth pabst pickled. Typewriter church-key chia slow-carb vice gochujang actually. Shoreditch austin woke hot chicken, single-origin coffee ugh affogato four loko green juice. Migas iPhone four dollar toast mustache.
+1	CHAMPION Reverse Weave Mens Dark Pink Hoodie	5999	/images/champion-reverse-weave-mens-dark-pink-hoodie.jpg	Champion Reverse Weave Hoodie.	Champion Reverse Weave Hoodie. The classic Reverse Weave® Pullover Hoodie only gets better with time. It's specially knit to resist vertical shrinkage, so the length stays true to size. Features embroidered Champion logo on front left chest and bottom left sleeve. Fleece lining. Two-ply hood with working drawcord for extra coverage. Pouch pocket with bartacks for strength and durability. Stretch ribbed side panels add ease and mobility. Cuffed long sleeves. Ribbed hemline. 82% cotton/18% polyester. Machine wash. Imported.
+2	CHAMPION Reverse Weave Mens Blue Hoodie	5999	/images/champion-reverse-weave-mens-blue-hoodie.jpg	Champion Reverse Weave Hoodie.	Champion Reverse Weave Hoodie. The classic Reverse Weave® Pullover Hoodie only gets better with time. It's specially knit to resist vertical shrinkage, so the length stays true to size. Features embroidered Champion logo on front left chest and bottom left sleeve. Fleece lining. Two-ply hood with working drawcord for extra coverage. Pouch pocket with bartacks for strength and durability. Stretch ribbed side panels add ease and mobility. Cuffed long sleeves. Ribbed hemline. 82% cotton/18% polyester. Machine wash. Imported.
+3	Nike SB Icon Essential Hoodie	5499	/images/nike-sb-icon-essential-mens-hoodie.jpg	Nike SB Icon Essential Hoodie	Nike SB Icon Essential Hoodie. The Nike SB Icon Hoodie keeps you warm on and off your board thanks to soft fleece and an adjustable hood. Midweight fleece is brushed for superior warmth and softness. Drawcord lets you wear the hood loose or cinch out the cold. Ribbed cuffs and hem help keep the hoodie in place while you move. Front kangaroo pocket. 80% cotton/20% polyester. Machine wash. Imported.
+4	THE NORTH FACE Box NSE Mens Mint Hoodie	5499	/images/north-face-box-mens-mint-hoodie.jpg	The North Face Box NSE hoodie.	The North Face Box NSE hoodie. Features The North Face logo at left chest and box logo screened on the back. Fleece lining. Drawstring hood. Kangaroo pocket. Ribbed cuffs and hem. 69% cotton/31% polyester. Machine wash. Imported.
+5	Brixton Crest Mens Black & Blue Hoodie	5899	/images/brixton-crest-mens-black-and-blue-hoodie.jpg	Brixton Crest Hoodie	Brixton Crest Hoodie. Drawstring hood. Brixton crest screened at left chest. Ribbed cuffs and hem. Kangaroo pocket. Fleece lining. 80% cotton/20% polyester. Machine wash. Imported.
+6	BLUE CROWN Road Trip Mens Hoodie	3999	/images/blue-crown-road-trip-mens-hoodie.jpg	Black Crown Road Trip Hoodie.	Black Crown Road Trip Hoodie. Drawstring hood. Graphic screened at center front. Ribbed cuffs and hem. Kangaroo pocket. Fleece lining. 80% cotton/20% polyester. Machine wash. Imported.
 \.
 
 
@@ -379,21 +399,21 @@ COPY public.products ("productId", name, price, image, "shortDescription", "long
 -- Name: cartItems_cartItemId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 284, true);
+SELECT pg_catalog.setval('public."cartItems_cartItemId_seq"', 294, true);
 
 
 --
 -- Name: carts_cartId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."carts_cartId_seq"', 112, true);
+SELECT pg_catalog.setval('public."carts_cartId_seq"', 117, true);
 
 
 --
 -- Name: orders_orderId_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public."orders_orderId_seq"', 51, true);
+SELECT pg_catalog.setval('public."orders_orderId_seq"', 56, true);
 
 
 --
