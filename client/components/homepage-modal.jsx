@@ -6,7 +6,7 @@ export default function HomePageModal(props) {
 
   return (
     <div>
-      <div className="modal dimmer" tabIndex="-1" role="dialog" style={isModalOpen ? { display: 'block' } : { display: 'none' }}>
+      <div className="modal page-mask" tabIndex="-1" role="dialog" style={isModalOpen ? { display: 'block' } : { display: 'none' }}>
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
