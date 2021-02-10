@@ -24,7 +24,7 @@ export default class ProductDetails extends React.Component {
     } else {
       return (
         <>
-          <h2 onClick={() => this.props.setView('catalog', { params: {} })}>&lt; Back to catalog</h2>
+          <h2 className="pointer my-2" onClick={() => this.props.setView('catalog', { params: {} })}>&lt; Back to catalog</h2>
           <div className="card m-3" /* onClick={props.setView} */>
             <img className="card-img-top image-contain" src={this.state.product.image} alt={this.state.product.name} />
             <div className="card-body pt-2">
