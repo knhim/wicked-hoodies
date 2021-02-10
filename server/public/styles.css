@@ -16,6 +16,11 @@ html, body {
   object-fit: contain;
 }
 
+.card-images {
+  height: 24rem;
+  object-fit: contain;
+}
+
 .page-mask {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;

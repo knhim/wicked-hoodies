@@ -24,25 +24,26 @@ export default class CheckoutForm extends React.Component {
 
   render() {
     return (
-      <form className="my-2" onSubmit={this.handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input type="text" onChange={this.handleChange} className="form-control" name="name" placeholder="Enter Name" required/>
-        </div>
-        <div className="form-group">
-          <label htmlFor="number">Credit Card:</label>
-          <input type="number" onChange={this.handleChange} className="form-control" name="creditCard" placeholder="####-####-####-####" required/>
-        </div>
-        <div className="form-group">
-          <label htmlFor="shipping-address">Shipping Address:</label>
-          <textarea name="shippingAddress" onChange={this.handleChange} className="form-control" placeholder="1234 LFZ Lane" rows="4" required/>
-        </div>
-        <div className="d-flex justify-content-between font-weight-bold my-2">
-          <p className="pointer" onClick={() => this.props.setView('catalog', { params: {} })}>&lt; Continue Shopping</p>
-          <button onClick={() => this.props.placeOrder(this.state)} type="submit" className="btn btn-primary">Place Order</button>
-        </div>
-      </form>
-
+      <>
+        <h2 className="pointer" onClick={() => this.props.setView('catalog', { params: {} })}>&lt; Continue Shopping</h2>
+        <form className="my-2" onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name">Name</label>
+            <input type="text" onChange={this.handleChange} className="form-control" name="name" placeholder="Enter Name" required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="number">Credit Card:</label>
+            <input type="number" onChange={this.handleChange} className="form-control" name="creditCard" placeholder="####-####-####-####" required />
+          </div>
+          <div className="form-group">
+            <label htmlFor="shipping-address">Shipping Address:</label>
+            <textarea name="shippingAddress" onChange={this.handleChange} className="form-control" placeholder="1234 LFZ Lane" rows="4" required />
+          </div>
+          <div className="d-flex justify-content-end font-weight-bold my-2">
+            <button onClick={() => this.props.placeOrder(this.state)} type="submit" className="btn btn-primary">Place Order</button>
+          </div>
+        </form>
+      </>
     );
   }
 
