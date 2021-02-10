@@ -44,7 +44,7 @@ git clone https://github.com/knhim/wicked-hoodies.git
 cd wicked-hoodies
 ```
 
-2. Install dependicies with NPM:
+2. Install dependencies with NPM:
 ```shell
 npm install
 ```
