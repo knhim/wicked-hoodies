@@ -58,17 +58,22 @@ sudo service postgresql start
 createdb wickedHoodies
 ```
 
-5. Import the example database to PostgreSQL:
+5. Copy the .env.example file and update with your PostgreSQL credentials
+```shell
+cp .env.example .env
+```
+
+6. Import the example database to PostgreSQL:
 ```shell
 npm run db: import
 ```
 
-6. Start the app:
+7. Start the app:
 ```shell
 npm run dev
 ```
 
-7. View application locally:
+8. View application locally:
 ```shell
 http://localhost:3000
 ```
