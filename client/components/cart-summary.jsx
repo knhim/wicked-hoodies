@@ -31,15 +31,18 @@ export default function CartSummary(props) {
   if (cart.length === 0) {
     return (
       <>
-        <p className="pointer my-2" onClick={() => props.setView('catalog', { params: {} })}>&lt; Back to catalog</p>
-        <p>There are no items in your cart!</p>
-        <p>Cart Total: ${(total).toFixed(2)}</p>
+        <h2 className="pointer mt-2" onClick={() => props.setView('catalog', { params: {} })}>&lt; Back to catalog</h2>
+        <div className="text-center pt-4 font-weight-bold">
+          <p>There are no items in your cart!</p>
+          <p>Cart Total: ${(total).toFixed(2)}</p>
+        </div>
+
       </>
     );
   } else {
     return (
       <>
-        <p className="font-weight-bold my-1" style={{ cursor: 'pointer' }} onClick={() => props.setView('catalog', { params: {} })}>&lt; Back to catalog</p>
+        <h2 className="font-weight-bold my-1" style={{ cursor: 'pointer' }} onClick={() => props.setView('catalog', { params: {} })}>&lt; Back to catalog</h2>
         { cartItems}
         <div className="d-flex justify-content-between align-items-end my-4">
           <p className="font-weight-bold">Cart Total: ${(total / 100).toFixed(2)}</p>
