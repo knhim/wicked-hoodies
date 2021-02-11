@@ -78,7 +78,8 @@ export default class App extends React.Component {
           },
           cart: []
         });
-      });
+      })
+      .catch(error => console.error(error));
   }
 
   handleModal() {

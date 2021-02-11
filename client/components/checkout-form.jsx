@@ -20,6 +20,7 @@ export default class CheckoutForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.placeOrder(this.state);
   }
 
   render() {
@@ -40,7 +41,7 @@ export default class CheckoutForm extends React.Component {
             <textarea name="shippingAddress" onChange={this.handleChange} className="form-control" placeholder="1234 LFZ Lane" rows="4" required />
           </div>
           <div className="d-flex justify-content-end font-weight-bold my-2">
-            <button onClick={() => this.props.placeOrder(this.state)} type="submit" className="btn btn-primary">Place Order</button>
+            <button type="submit" className="btn btn-primary">Place Order</button>
           </div>
         </form>
       </>
