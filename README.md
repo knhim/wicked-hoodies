@@ -22,7 +22,7 @@ Wicked Hoodies is a full stack shopping cart app created with Node.js and React.
 
 ## Live Demo
 
-Try the app at [Wicked Hoodies](google.com)
+Try the app at [Wicked Hoodies](https://wicked-hoodies.kevinnhim.com)
 
 
 ## Preview
@@ -44,7 +44,7 @@ git clone https://github.com/knhim/wicked-hoodies.git
 cd wicked-hoodies
 ```
 
-2. Install dependicies with NPM:
+2. Install dependencies with NPM:
 ```shell
 npm install
 ```
@@ -58,17 +58,22 @@ sudo service postgresql start
 createdb wickedHoodies
 ```
 
-5. Import the example database to PostgreSQL:
+5. Copy the .env.example file and update with your PostgreSQL credentials
+```shell
+cp .env.example .env
+```
+
+6. Import the example database to PostgreSQL:
 ```shell
 npm run db: import
 ```
 
-6. Start the app:
+7. Start the app:
 ```shell
 npm run dev
 ```
 
-7. View application locally:
+8. View application locally:
 ```shell
 http://localhost:3000
 ```
