@@ -65,7 +65,7 @@ cp .env.example .env
 
 6. Import the example database to PostgreSQL:
 ```shell
-npm run db: import
+npm run db:import
 ```
 
 7. Start the app:
